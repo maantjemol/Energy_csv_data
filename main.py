@@ -1,1 +1,3 @@
-print("UWUUUUUUUUUUUU")
+from fundaData import updataData
+
+updataData()

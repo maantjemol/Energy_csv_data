@@ -37,7 +37,7 @@ def parseDataFile(filename: str):
     f.write(csv_data)
 
 
+if __name__ == "__main__":
+  parseDataFile("beschikbare_capaciteit_elektriciteitsnet.gpkg")
 
-
-
-parseDataFile("beschikbare_capaciteit_elektriciteitsnet.gpkg")
+'git commit -m "updated CSV" fundata.csv'
