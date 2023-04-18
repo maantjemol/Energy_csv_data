@@ -2,7 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
-
 def fetchFundaData (postcode: str):
   postcode = postcode.lower()
   postcode = postcode.replace(" ", "")
@@ -19,7 +18,6 @@ def fetchFundaData (postcode: str):
     print("no data")
     return 0
 
-df = pd.read_csv("test.csv")
 
 
 def getUrl(zip):
@@ -27,9 +25,14 @@ def getUrl(zip):
   zip = zip.replace(" ", "")
   return f"https://www.fundainbusiness.nl/bouwgrond/{zip}/+2km/"
 
-df["funda_url"] = df.apply(lambda x: getUrl(x["zip_code"]), axis=1)
-df["available"] = df.apply(lambda x: fetchFundaData(x["zip_code"]), axis=1)
-csv_data = df.to_csv()
+def updataData():
+  df = pd.read_csv("test.csv")
+  df["funda_url"] = df.apply(lambda x: getUrl(x["zip_code"]), axis=1)
+  df["available"] = df.apply(lambda x: fetchFundaData(x["zip_code"]), axis=1)
+  csv_data = df.to_csv()
 
-with open("fundata.csv", "w") as f:
-  f.write(csv_data)
+  with open("fundata.csv", "w") as f:
+    f.write(csv_data)
+
+if __name__ == "__main__":
+  updataData()
