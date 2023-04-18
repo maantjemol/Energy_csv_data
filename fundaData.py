@@ -23,7 +23,7 @@ def fetchFundaData (postcode: str):
 def getUrl(zip):
   zip = zip.lower()
   zip = zip.replace(" ", "")
-  return f"https://www.fundainbusiness.nl/bouwgrond/{zip}/+1km/"
+  return f"https://www.fundainbusiness.nl/bouwgrond/{zip}/+5km/"
 
 def updataData():
   df = pd.read_csv("test.csv")
