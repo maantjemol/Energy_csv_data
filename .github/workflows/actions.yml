@@ -3,6 +3,10 @@ name: run main.py
 on:
   schedule:
     - cron: "0 10 * * *"
+  push:
+    branches:
+      - master
+
     # This runs at 10:00 AM UTC each day.
     # * is a special character in YAML so you have to quote this string
 
